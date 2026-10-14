@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Public School - Student Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0b2545;
+            --accent-gold: #f4d03f;
+            --bg-cream: #fdfbf7;
+        }
+        body {
+            background-color: var(--bg-cream);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        .header-banner {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .header-title {
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .header-subtitle {
+            font-size: 0.95rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.5px;
+        }
+        .main-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eef2f5;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+        }
+        .nav-pills .nav-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            border: 1px solid var(--primary-blue);
+            margin-right: 10px;
+            border-radius: 8px;
+        }
+        .btn-custom {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #133a68;
+            color: white;
+        }
+        .photo-box {
+            width: 110px;
+            height: 130px;
+            border: 2px dashed #0b2545;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header-banner">
+        <div class="container">
+            <span class="badge bg-warning text-dark mb-2">STUDENT PORTAL</span>
+            <h1 class="header-title">MODERN PUBLIC SCHOOL</h1>
+            <p class="header-subtitle mb-0"><i class="fas fa-map-marker-alt me-1"></i> Tikari, Hanumanganj, Rudhauli, Basti</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-8">
+
+                <!-- Navigation Tabs -->
+                <ul class="nav nav-pills mb-3 justify-content-center" id="portalTab" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" id="register-tab" data-bs-toggle="pill" data-bs-target="#register" type="button"><i class="fas fa-user-plus me-1"></i> New Registration</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="status-tab" data-bs-toggle="pill" data-bs-target="#status" type="button"><i class="fas fa-search me-1"></i> Check Status</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="portalTabContent">
+                    
+                    <!-- Registration Form Tab -->
+                    <div class="tab-pane fade show active" id="register" role="tabpanel">
+                        <div class="main-card">
+                            <h4 class="mb-3 text-center text-primary-blue fw-bold" style="color: var(--primary-blue);"><i class="fas fa-id-card me-2"></i>Student Registration Form</h4>
+                            <form id="studentRegistrationForm">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">Student Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter full name" required>
+                                </div>
+                                
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Class</label>
+                                        <select class="form-select" required>
+                                            <option value="" selected disabled>Select class</option>
+                                            <option value="9">Class 9th</option>
+                                            <option value="10">Class 10th</option>
+                                            <option value="8">Class 8th</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Roll Number</label>
+                                        <input type="text" class="form-control" placeholder="Enter roll number">
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Father's / Mother's Name</label>
+                                        <input type="text" class="form-control" placeholder="Parent name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold">Mobile Number</label>
+                                        <input type="tel" class="form-control" placeholder="10-digit mobile number" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold">Passport Size Photo</label>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="photo-box" id="photoPreview">
+                                            <i class="fas fa-user fa-3x"></i>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary mb-2 d-block"><i class="fas fa-camera me-1"></i> Camera se lein</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary d-block"><i class="fas fa-folder-open me-1"></i> Gallery / File se chuno</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-custom w-100"><i class="fas fa-paper-plane me-2"></i>Register Student</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <small class="text-muted">Admit cards are issued by the school office only. <a href="#" class="text-decoration-none">Staff Login</a></small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Check Status Tab -->
+                    <div class="tab-pane fade" id="status" role="tabpanel">
+                        <div class="main-card">
+                            <h4 class="mb-3 text-center text-primary-blue fw-bold" style="color: var(--primary-blue);"><i class="fas fa-search me-2"></i>Check Registration Status</h4>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Mobile Number or Application ID</label>
+                                <input type="text" class="form-control" placeholder="Enter mobile number or Application ID">
+                            </div>
+                            <button type="button" class="btn btn-custom w-100 mb-3"><i class="fas fa-search me-2"></i>Check Status</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+                                              </html>
+                                              
