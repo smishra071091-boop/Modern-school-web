@@ -190,3 +190,27 @@
 </body>
                                               </html>
                                               
+        // 2. Staff Passcode Login Logic (Tagda Passcode)
+        document.getElementById('staffLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const passcode = document.getElementById('adminPasscode').value;
+            
+            // Yahan apna tagda passcode set karein
+            if(passcode === 'Modern@Admin#2026!Secure') {
+                // Close Login Modal
+                const loginModalEl = document.getElementById('staffLoginModal');
+                const loginModal = bootstrap.Modal.getInstance(loginModalEl);
+                loginModal.hide();
+                document.getElementById('staffLoginForm').reset();
+
+                // Open Admin Dashboard Modal
+                const adminModal = new bootstrap.Modal(document.getElementById('adminDashboardModal'));
+                adminModal.show();
+                
+                // Load Table Data
+                loadStudentsData();
+            } else {
+                alert('Galat Passcode! Kripya sahi secure password dalein.');
+            }
+        });
+        
